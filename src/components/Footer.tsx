@@ -1,4 +1,3 @@
-
 import { cn } from "@/lib/utils";
 
 interface FooterLinkProps {
@@ -33,10 +32,6 @@ export function Footer() {
                 alt="Recollect Logo" 
                 className="h-8 w-auto"
               />
-              <div className="flex flex-col">
-                <span className="font-bold text-lg text-slate-700">recollect</span>
-                <span className="text-xs text-slate-500">scan, share, remember</span>
-              </div>
             </div>
             <p className="text-sm text-slate-500">Made with 🎈 for party lovers everywhere.</p>
           </div>

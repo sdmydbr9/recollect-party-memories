@@ -1,4 +1,3 @@
-
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
@@ -34,7 +33,6 @@ export function MainNav() {
                 alt="Recollect Logo" 
                 className="h-12 w-auto"
               />
-              <span className="font-bold text-xl text-slate-700 hidden sm:inline-block">recollect</span>
             </div>
             <span className="text-xs text-slate-500 ml-1 hidden sm:inline-block">scan, share, remember</span>
           </div>
