@@ -22,7 +22,7 @@ export function MainNav() {
             <div className="flex items-center gap-2">
               <img src="/lovable-uploads/9cc340d6-0251-44ff-b712-69e4e7a1c0ad.png" alt="Recollect Logo" className="h-12 w-auto" />
             </div>
-            <span className="text-slate-500 ml-1 hidden sm:inline-block text-xs font-normal mx-px">scan, share, remember</span>
+            
           </div>
         </a>
         <nav className="hidden md:flex gap-6">
