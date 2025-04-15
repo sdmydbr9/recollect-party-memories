@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -32,60 +35,15 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
@@ -96,6 +54,92 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-cream text-foreground font-sans;
   }
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #FFDEE2 0%, #E5DEFF 100%);
+}
+
+.confetti {
+  position: relative;
+}
+
+.confetti span {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #E5DEFF;
+  opacity: 0;
+  border-radius: 50%;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.confetti span:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.confetti span:nth-child(2) {
+  top: 60%;
+  left: 20%;
+  animation-delay: 0.4s;
+}
+
+.confetti span:nth-child(3) {
+  top: 40%;
+  left: 30%;
+  animation-delay: 0.8s;
+}
+
+.confetti span:nth-child(4) {
+  top: 70%;
+  left: 40%;
+  animation-delay: 1.2s;
+}
+
+.confetti span:nth-child(5) {
+  top: 30%;
+  left: 50%;
+  animation-delay: 1.6s;
+}
+
+.confetti span:nth-child(6) {
+  top: 50%;
+  left: 60%;
+  animation-delay: 0.2s;
+}
+
+.confetti span:nth-child(7) {
+  top: 80%;
+  left: 70%;
+  animation-delay: 0.6s;
+}
+
+.confetti span:nth-child(8) {
+  top: 10%;
+  left: 80%;
+  animation-delay: 1.0s;
+}
+
+.confetti span:nth-child(9) {
+  top: 90%;
+  left: 90%;
+  animation-delay: 1.4s;
+}
+
+.confetti span:nth-child(10) {
+  top: 20%;
+  left: 95%;
+  animation-delay: 1.8s;
+}
+
+.polaroid {
+  @apply bg-white p-2 shadow-md rounded-sm rotate-2 transition-transform duration-300 hover:rotate-0 hover:-translate-y-1;
+}
+
+.polaroid:nth-child(even) {
+  @apply -rotate-2 hover:rotate-0;
 }
