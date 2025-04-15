@@ -26,8 +26,18 @@ export function MainNav() {
   return (
     <div className="flex items-center justify-between w-full max-w-screen-xl mx-auto py-4 px-4 md:px-8">
       <div className="flex items-center gap-6">
-        <a href="/" className="flex items-center space-x-2">
-          <span className="font-bold text-xl">Recollect</span>
+        <a href="/" className="flex items-center">
+          <div className="flex flex-col items-start">
+            <div className="flex items-center gap-2">
+              <img 
+                src="/lovable-uploads/9cc340d6-0251-44ff-b712-69e4e7a1c0ad.png" 
+                alt="Recollect Logo" 
+                className="h-12 w-auto"
+              />
+              <span className="font-bold text-xl text-slate-700 hidden sm:inline-block">recollect</span>
+            </div>
+            <span className="text-xs text-slate-500 ml-1 hidden sm:inline-block">scan, share, remember</span>
+          </div>
         </a>
         <nav className="hidden md:flex gap-6">
           <NavItem href="#how-it-works">How It Works</NavItem>
