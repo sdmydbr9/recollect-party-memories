@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Camera, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
@@ -40,6 +40,18 @@ function PhotoCard({ color, onClick }: PhotoCardProps) {
 
 export function GallerySection() {
   const [selectedPhoto, setSelectedPhoto] = useState<number | null>(null);
+  const [api, setApi] = useState<any>(null);
+
+  // Set up autoplay effect
+  useEffect(() => {
+    if (!api) return;
+    
+    const interval = setInterval(() => {
+      api.scrollNext();
+    }, 3000); // Change slide every 3 seconds
+    
+    return () => clearInterval(interval);
+  }, [api]);
 
   return (
     <section id="gallery" className="py-16 md:py-24 bg-blush/20">
@@ -51,14 +63,21 @@ export function GallerySection() {
           </p>
         </div>
         
-        <div className="max-w-4xl mx-auto px-8 md:px-12">
-          <Carousel className="w-full">
+        <div className="max-w-3xl mx-auto px-8 md:px-12">
+          <Carousel 
+            className="w-full"
+            setApi={setApi}
+            opts={{
+              align: "center",
+              loop: true,
+            }}
+          >
             <CarouselContent>
               {mockPhotos.map((photo) => (
-                <CarouselItem key={photo.id} className="md:basis-1/2 lg:basis-1/3">
+                <CarouselItem key={photo.id} className="basis-full">
                   <Dialog>
                     <DialogTrigger asChild>
-                      <div>
+                      <div className="flex justify-center">
                         <PhotoCard color={photo.color} onClick={() => setSelectedPhoto(photo.id)} />
                       </div>
                     </DialogTrigger>
