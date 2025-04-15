@@ -3,6 +3,13 @@ import { useState } from "react";
 import { Camera, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const mockPhotos = [
   { id: 1, color: "from-lavender to-blush/30" },
@@ -44,31 +51,43 @@ export function GallerySection() {
           </p>
         </div>
         
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
-          {mockPhotos.map((photo) => (
-            <Dialog key={photo.id}>
-              <DialogTrigger asChild>
-                <div>
-                  <PhotoCard color={photo.color} onClick={() => setSelectedPhoto(photo.id)} />
-                </div>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[600px] p-0 overflow-hidden bg-transparent border-none">
-                <div className="relative bg-white rounded-lg shadow-xl overflow-hidden">
-                  <div className={`aspect-square bg-gradient-to-br ${photo.color}`}>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <Camera className="h-16 w-16 text-white/50" />
-                    </div>
-                  </div>
-                  <div className="p-4">
-                    <div className="flex items-center justify-between">
-                      <h3 className="font-medium">Party Photo #{photo.id}</h3>
-                      <span className="text-sm text-slate-500">April 15, 2025</span>
-                    </div>
-                  </div>
-                </div>
-              </DialogContent>
-            </Dialog>
-          ))}
+        <div className="max-w-4xl mx-auto px-8 md:px-12">
+          <Carousel className="w-full">
+            <CarouselContent>
+              {mockPhotos.map((photo) => (
+                <CarouselItem key={photo.id} className="md:basis-1/2 lg:basis-1/3">
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <div>
+                        <PhotoCard color={photo.color} onClick={() => setSelectedPhoto(photo.id)} />
+                      </div>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[600px] p-0 overflow-hidden bg-transparent border-none">
+                      <div className="relative bg-white rounded-lg shadow-xl overflow-hidden">
+                        <div className={`aspect-square bg-gradient-to-br ${photo.color}`}>
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <Camera className="h-16 w-16 text-white/50" />
+                          </div>
+                        </div>
+                        <div className="p-4">
+                          <div className="flex items-center justify-between">
+                            <h3 className="font-medium">Party Photo #{photo.id}</h3>
+                            <span className="text-sm text-slate-500">April 15, 2025</span>
+                          </div>
+                        </div>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex justify-center mt-6">
+              <div className="flex items-center gap-2">
+                <CarouselPrevious className="static h-9 w-9 translate-y-0 border-lavender" />
+                <CarouselNext className="static h-9 w-9 translate-y-0 border-lavender" />
+              </div>
+            </div>
+          </Carousel>
         </div>
         
         <div className="text-center mt-10">
